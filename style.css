@@ -2,4 +2,42 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+}
+
+body{
+    background-color: #24142c;
+}
+
+.weather-container{
+    width: 90%;
+    max-width: 470px;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 50px 35px;
+    text-align: center;
+    background-color: #3e3b51;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.search-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-box{
+    outline: none;
+    border: none;
+    background-color: #ebfffc;
+    border-radius:30px;
+    padding: 10px 25px;
+    color: #555;
+    margin-right: 16px;
+    height: 60px;
+    font-size: 1rem;
+    flex: 1rem;
 }
