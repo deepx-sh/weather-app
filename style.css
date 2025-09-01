@@ -9,6 +9,9 @@ body{
     background-color: #24142c;
 }
 
+h1{
+    margin-bottom: 1rem;
+}
 .weather-container{
     width: 90%;
     max-width: 470px;
@@ -32,12 +35,30 @@ body{
 .input-box{
     outline: none;
     border: none;
-    background-color: #ebfffc;
+    background-color: #abaed3;
     border-radius:30px;
     padding: 10px 25px;
-    color: #555;
+    color: #000;
     margin-right: 16px;
-    height: 60px;
+    height: 50px;
     font-size: 1rem;
+    font-weight: 500;
     flex: 1rem;
+}
+
+.search-btn{
+    outline: none;
+    border: none;
+    background:none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.search-image{
+    height: 30px;
+    width: 30px;
+}
+.search-btn:hover{
+    background-color: #24142c;
 }
