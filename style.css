@@ -30,6 +30,7 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .input-box{
@@ -53,6 +54,7 @@ h1{
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
 .search-image{
@@ -61,4 +63,37 @@ h1{
 }
 .search-btn:hover{
     background-color: #24142c;
+    cursor: pointer;
+}
+
+.weather-img{
+    height: 80px;
+}
+
+.temprature{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.city-name{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.other-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 0 20px;
+}
+
+.other-details img{
+    height: 50px;
+}
+
+.col{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
