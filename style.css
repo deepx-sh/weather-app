@@ -96,4 +96,10 @@ h1{
     display: flex;
     gap: 1rem;
     align-items: center;
+    text-align: left;
+}
+
+.humidity, .wind-speed{
+    font-size: 1.2rem;
+    font-weight: 500;
 }
