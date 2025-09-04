@@ -4,9 +4,15 @@ const btn = document.querySelector(".search-btn");
 const ip=document.querySelector(".input-box")
 btn.addEventListener("click", () => {
     let city = ip.value;
-    getWeather(city);
+    if (city.trim().length === 0 || city.trim()==='') {
+        alert("Please enter correct city name");
+        return;
+    } else {
+        getWeather(city);
+    }
 })
 async function getWeather(city) {
+    
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
     const response = await fetch(url);
     console.log(response);
@@ -23,7 +29,9 @@ async function getWeather(city) {
     humid.textContent = `${data.main.humidity}%`;
 
     const speed = document.querySelector(".wind-speed");
-    speed.textContent=`${data.wind.speed} km/h`
+    speed.textContent = `${data.wind.speed} km/h`;
+
+    ip.value = '';
     console.log(data);
     
 }
