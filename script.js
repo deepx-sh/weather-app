@@ -1,4 +1,4 @@
-const api = "YOUR_API_KEY";
+const api = "";
 
 const btn = document.querySelector(".search-btn");
 const ip=document.querySelector(".input-box")
@@ -18,6 +18,12 @@ async function getWeather(city) {
 
     const cityName = document.querySelector(".city-name");
     cityName.textContent = data.name;
+
+    const humid = document.querySelector(".humidity");
+    humid.textContent = `${data.main.humidity}%`;
+
+    const speed = document.querySelector(".wind-speed");
+    speed.textContent=`${data.wind.speed} km/h`
     console.log(data);
     
 }
