@@ -1,7 +1,8 @@
 const api = "";
 
 const btn = document.querySelector(".search-btn");
-const ip=document.querySelector(".input-box")
+const ip = document.querySelector(".input-box");
+const img = document.querySelector(".weather-img");
 btn.addEventListener("click", () => {
     let city = ip.value;
     if (city.trim().length === 0 || city.trim()==='') {
@@ -31,6 +32,17 @@ async function getWeather(city) {
     const speed = document.querySelector(".wind-speed");
     speed.textContent = `${data.wind.speed} km/h`;
 
+    if (data.weather[0].main === "Clouds") {
+        img.src="./assets/weather.png"
+    } else if (data.weather[0].main === "Clear") {
+        img.src="./assets/sun.png"
+    }else if (data.weather[0].main === "Rain") {
+        img.src="./assets/rain.png"
+    }else if (data.weather[0].main === "Drizzle") {
+        img.src="./assets/rain.png"
+    }else if (data.weather[0].main === "Mist") {
+        img.src="./assets/haze.png"
+    }
     ip.value = '';
     console.log(data);
     
