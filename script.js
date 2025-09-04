@@ -12,6 +12,13 @@ btn.addEventListener("click", () => {
         getWeather(city);
     }
 })
+
+ip.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        btn.click();
+    }
+    
+})
 async function getWeather(city) {
     
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
