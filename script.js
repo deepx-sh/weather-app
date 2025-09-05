@@ -50,6 +50,8 @@ async function getWeather(city) {
     }else if (data.weather[0].main === "Mist") {
         img.src="./assets/haze.png"
     }
+    const info = document.querySelector(".weather-info");
+    info.style.display="block"
     ip.value = '';
     console.log(data);
     
