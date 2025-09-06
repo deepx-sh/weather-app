@@ -209,3 +209,15 @@ h1{
         transform: rotate(360deg);
     }
 }
+
+@media (max-width:500px){
+    .weather-container{
+        margin: 20px;
+        padding: 30px 25px;
+    }
+
+    .other-details{
+        flex-direction: column;
+        gap: 20px;
+    }
+}
