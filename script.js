@@ -3,6 +3,8 @@ const api = "";
 const btn = document.querySelector(".search-btn");
 const ip = document.querySelector(".input-box");
 const img = document.querySelector(".weather-img");
+const err = document.querySelector(".error-msg")
+  const info = document.querySelector(".weather-info");
 btn.addEventListener("click", () => {
     let city = ip.value;
     if (city.trim().length === 0 || city.trim()==='') {
@@ -23,7 +25,12 @@ async function getWeather(city) {
     
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
     const response = await fetch(url);
-    console.log(response);
+    if (response.status === 404) {
+        err.style.display = "block";
+        info.style.display="block"
+    }
+    else {
+            console.log(response);
     
     const data = await response.json();
     
@@ -50,10 +57,11 @@ async function getWeather(city) {
     }else if (data.weather[0].main === "Mist") {
         img.src="./assets/haze.png"
     }
-    const info = document.querySelector(".weather-info");
+  
     info.style.display="block"
     ip.value = '';
     console.log(data);
+    }
     
 }
 

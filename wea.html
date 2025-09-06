@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #24142c, #3e3b51);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 60px;
+    }
+
+    .weather-container {
+      width: 90%;
+      max-width: 470px;
+      margin: 0 auto;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      background: rgba(62, 59, 81, 0.95);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.8s ease;
+      transition: background 0.6s ease;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Search */
+    .search-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      background: #abaed3;
+      border-radius: 40px;
+      padding: 5px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .input-box {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #000;
+      border-radius: 40px;
+    }
+
+    .search-btn {
+      border: none;
+      outline: none;
+      background: linear-gradient(135deg, #6c63ff, #4834d4);
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    }
+
+    .search-btn:hover {
+      background: linear-gradient(135deg, #5a54e3, #3726a6);
+      transform: scale(1.08);
+      cursor: pointer;
+    }
+
+    .search-image {
+      height: 25px;
+      width: 25px;
+    }
+
+    /* Placeholder */
+    .placeholder-msg {
+      color: #ccc;
+      font-size: 1.2rem;
+      margin-top: 30px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    /* Weather Info */
+    .weather-info {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .weather-img {
+      height: 130px;
+      margin: 20px 0;
+      transition: transform 0.3s ease;
+    }
+
+    .weather-img:hover {
+      transform: scale(1.05);
+    }
+
+    .temprature {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+
+    .city-name {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .other-details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding: 0 20px;
+    }
+
+    .other-details img {
+      height: 45px;
+    }
+
+    .col {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 15px;
+      border-radius: 12px;
+    }
+
+    .humidity, .wind-speed {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .error-msg {
+      display: none;
+      color: #ff6b6b;
+      font-weight: 600;
+      margin-bottom: 15px;
+      animation: fadeIn 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="weather-container">
+    <h1>Weather App</h1>
+
+    <div class="search-container">
+      <input type="text" class="input-box" placeholder="Enter city name" spellcheck="false" required>
+      <button class="search-btn">
+        <img src="./assets/magnifier.png" alt="search-image" class="search-image">
+      </button>
+    </div>
+
+    <!-- Placeholder (shown first) -->
+    <div class="placeholder-msg">
+      <p>🌍 Search for a city to see the weather</p>
+    </div>
+
+    <!-- Weather Info -->
+    <div class="weather-info">
+      <div class="error-msg">
+        <h3 class="err">City not found. Please try again.</h3>
+      </div>
+      <img src="./assets/rain.png" alt="weather-image" class="weather-img">
+      <h1 class="temprature">22<sup>°C</sup></h1>
+      <h3 class="city-name">New York</h3>
+
+      <div class="other-details">
+        <div class="col">
+          <img src="./assets/humidity.png" alt="humidityimage">
+          <div>
+            <p class="humidity">50%</p>
+            <p>Humidity</p>
+          </div>
+        </div>
+        <div class="col">
+          <img src="./assets/wind-power.png" alt="windspeedimage">
+          <div>
+            <p class="wind-speed">15 km/h</p>
+            <p>Wind Speed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const api = "cd226b7c56a7ac21ff8f65bfb809fbb7"; // your API key
+    const btn = document.querySelector(".search-btn");
+    const ip = document.querySelector(".input-box");
+    const img = document.querySelector(".weather-img");
+    const err = document.querySelector(".error-msg");
+    const info = document.querySelector(".weather-info");
+    const placeholder = document.querySelector(".placeholder-msg");
+    const container = document.querySelector(".weather-container");
+
+    btn.addEventListener("click", () => {
+      let city = ip.value;
+      if (city.trim().length === 0) {
+        alert("Please enter a city name");
+        return;
+      }
+      getWeather(city);
+    });
+
+    ip.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") btn.click();
+    });
+
+    async function getWeather(city) {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
+      const response = await fetch(url);
+
+      if (response.status === 404) {
+        err.style.display = "block";
+        info.style.display = "none";
+        placeholder.style.display = "none";
+      } else {
+        const data = await response.json();
+
+        document.querySelector(".temprature").innerHTML = `${Math.floor(data.main.temp)}<sup>°C</sup>`;
+        document.querySelector(".city-name").textContent = data.name;
+        document.querySelector(".humidity").textContent = `${data.main.humidity}%`;
+        document.querySelector(".wind-speed").textContent = `${data.wind.speed} km/h`;
+
+        if (data.weather[0].main === "Clouds") {
+          img.src = "./assets/weather.png";
+        } else if (data.weather[0].main === "Clear") {
+          img.src = "./assets/sun.png";
+        } else if (data.weather[0].main === "Rain" || data.weather[0].main === "Drizzle") {
+          img.src = "./assets/rain.png";
+        } else if (data.weather[0].main === "Mist") {
+          img.src = "./assets/haze.png";
+        }
+
+        // Dynamic background
+        switch (data.weather[0].main) {
+          case "Clear":
+            container.style.background = "linear-gradient(135deg, #f9d423, #ff4e50)";
+            break;
+          case "Clouds":
+            container.style.background = "linear-gradient(135deg, #bdc3c7, #2c3e50)";
+            break;
+          case "Rain":
+          case "Drizzle":
+            container.style.background = "linear-gradient(135deg, #00c6ff, #0072ff)";
+            break;
+          case "Mist":
+            container.style.background = "linear-gradient(135deg, #606c88, #3f4c6b)";
+            break;
+          default:
+            container.style.background = "linear-gradient(135deg, #3e3b51, #24142c)";
+        }
+
+        placeholder.style.display = "none";
+        err.style.display = "none";
+        info.style.display = "block";
+        ip.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
