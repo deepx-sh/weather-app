@@ -142,7 +142,7 @@ h1{
     display: block;
 }
 .error-msg{
-    /* display: none; */
+    display: none;
     background: rgba(220, 53, 69, 0.2);
     border: 1px solid #dc3545;
     color: #ff6b7b;

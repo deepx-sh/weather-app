@@ -25,6 +25,9 @@ ip.addEventListener("keypress", (e) => {
 })
 async function getWeather(city) {
     
+    showLoading();
+    hideError();
+
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
     const response = await fetch(url);
     if (response.status === 404) {
@@ -68,5 +71,17 @@ async function getWeather(city) {
 }
 
 function showError(message) {
-    document.querySelector(".err").textContent=`❌ ${message}`
+    document.querySelector(".err").textContent = `❌ ${message}`;
+    err.classList.add("show")
+}
+
+function hideError() {
+    err.classList.remove(".show")
+}
+function showLoading() {
+    loading.classList.add("show")
+}
+
+function hideLoading() {
+    loading.classList.remove(".show")
 }
