@@ -4,11 +4,13 @@ const btn = document.querySelector(".search-btn");
 const ip = document.querySelector(".input-box");
 const img = document.querySelector(".weather-img");
 const err = document.querySelector(".error-msg")
-  const info = document.querySelector(".weather-info");
+const info = document.querySelector(".weather-info");
+const loading = document.querySelector(".loading");
+
 btn.addEventListener("click", () => {
     let city = ip.value;
     if (city.trim().length === 0 || city.trim()==='') {
-        alert("Please enter correct city name");
+        showError("Please enter correct city name");
         return;
     } else {
         getWeather(city);
@@ -65,3 +67,6 @@ async function getWeather(city) {
     
 }
 
+function showError(message) {
+    document.querySelector(".err").textContent=`❌ ${message}`
+}
