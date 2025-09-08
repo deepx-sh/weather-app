@@ -2,19 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-      font-family: "Roboto", sans-serif;
+        font-family: "Inter", sans-serif;
+
 }
 
 body{
-    background-color: #24142c;
+    background-color:  #F0F4F9;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 60px;
 }
 
 h1{
     margin-bottom: 1rem;
+    color: #007BFF;
+    font-weight: 700;
+    font-size: 2rem;
 }
 .weather-container{
     width: 90%;
@@ -23,9 +28,9 @@ h1{
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
-    background-color:rgba(62, 59, 81, 0.9);
-    color: #fff;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background-color:#FFFFFF;
+    color: #212529;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -35,44 +40,44 @@ h1{
 .search-container{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* justify-content: space-between; */
+    /* align-items: center; */
     margin-bottom: 1.5rem;
     gap: 10px;
 }
 
 .input-box{
-    outline: none;
-    border: none;
-    background-color: #abaed3;
-    border-radius:25px;
+    border: 2px solid #d6d9de;
+    background-color: #fff;
+    border-radius:12px;
     padding: 12px 20px;
-    color: #000;
-    margin-right: 16px;
-    height: 50px;
+    color: #212529;
+    /* margin-right: 16px;
+    height: 50px; */
     font-size: 1rem;
-    font-weight: 500;
     flex: 1;
-    transition: all 0.3s ease;
+    transition: border 0.3s ease, transform 0.2s ease;
 }
 
-.input-box:hover{
-    background-color: #c5c8e8;
+.input-box:focus{
+   outline: none;
+   border-color: #007BFF;
     transform: scale(1.02);
 }
     
 .input-box::placeholder{
     color: #665;
+    font-weight: 500;
 }
 .search-btn{
     outline: none;
     border: none;
-    background-color: #24142c;
+    background-color: #007BFF;
     height: 50px;
     width: 50px;
     border-radius: 50%;
       cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease,transform 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,9 +86,10 @@ h1{
 .search-image{
     height: 24px;
     width: 24px;
+    /* filter: invert(1); */
 }
 .search-btn:hover{
-    background-color: #3d1f4b;  
+    background-color: #0056b3;  
     transform: scale(1.05);}
 
 .weather-img{
@@ -93,7 +99,7 @@ h1{
 }
 
 .temprature{
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
     margin: 10px 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -101,40 +107,40 @@ h1{
 
 .city-name{
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 20px;
-    color: #e0e0e0;
 }
 
 .other-details{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 20px;
     padding:20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    background: #F8F9FA;
+    border-radius: 12px;
     backdrop-filter: blur(5px);
 }
 
 .other-details img{
-    height: 50px;
+    height: 45px;
 }
 
 .col{
     display: flex;
-    gap: 15px;
+    gap: 10px;
     align-items: center;
     text-align: left;
 }
 
 .humidity, .wind-speed{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
+    color: #212529;
 }
 
 .weather-info{
-    /* display: none; */
+    display: none;
     animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -143,12 +149,13 @@ h1{
 }
 .error-msg{
     display: none;
-    background: rgba(220, 53, 69, 0.2);
+    background: rgba(220, 53, 69, 0.1);
     border: 1px solid #dc3545;
-    color: #ff6b7b;
-    padding: 15px;
+    color: #dc3545;
+    padding: 12px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-weight: 500;
     animation: shake 0.5s ease-in-out;
 }
 
@@ -158,7 +165,7 @@ h1{
 
 .loading{
     display: none;
-    color: #abaed3;
+    color: #007BFF;
     margin: 20px 0;
 }
 .loading.show{
@@ -192,11 +199,11 @@ h1{
 }
 
 .spinner{
-    border: 3px solid rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(0, 123, 255, 0.2);
     border-radius: 50%;
-    border-top: 3px solid #667eea;
-    width: 30px;
-    height: 30px;
+    border-top: 3px solid #007BFF;
+    width: 28px;
+    height: 28px;
     animation: spin 1s linear infinite;
     margin: 10px auto;
 }
