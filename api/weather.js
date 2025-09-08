@@ -6,7 +6,7 @@ export default async function hander(req, res) {
     }
 
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.OPENWEATHER_KEY}&units=metric`);
         const data = await response.json();
         res.status(200).json(data);
     } catch (error) {
