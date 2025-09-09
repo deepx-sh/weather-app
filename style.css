@@ -81,7 +81,6 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
 }
 
 .search-image{
@@ -227,5 +226,25 @@ h1{
     .other-details{
         flex-direction: column;
         gap: 20px;
+    }
+    .search-container{
+        gap: 8px;
+    }
+
+    .input-box{
+        font-size: 0.9rem;
+        padding: 10px 14px;
+    }
+
+    .search-btn{
+        width: 15%;
+        min-width: 45px;
+        max-width: 60px;
+        height: auto;
+        aspect-ratio: 1/1;
+    }
+    .search-image{
+        width: 20px;
+        height: 20px;
     }
 }
