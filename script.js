@@ -30,17 +30,11 @@ async function getWeather(city) {
     hideWeather();
     try {
         //  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
-    const response = await fetch(`/api/weather?city=${city}`);
-        if (!response.ok) {
-            if (response.status === 404) {
-                console.log(response);
-                
-                throw new Error("City not found. Please enter a valid city name.")
-            } else {
-                throw new Error("Failed to fetch weather data. Please try again later.")
-            }
-        }
+    const response = await fetch(`/api/weather?city=${city}`); 
         const data = await response.json()
+        if (!response.ok) {
+        throw new Error(data.error || "Failed to fetch weather data. Please try again later.")
+    }
         displayData(data)
         
     } catch (error) {
